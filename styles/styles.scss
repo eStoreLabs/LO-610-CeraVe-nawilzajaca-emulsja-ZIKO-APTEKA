@@ -89,6 +89,7 @@ $transition: all 0.3s ease-in-out;
   .es-kv {
     &__left {
       position: relative;
+      background-color: $color-accent;
       &__logo {
         background-color: $color-main;
         padding: 20px 20px 20px 40px;
@@ -150,7 +151,7 @@ $transition: all 0.3s ease-in-out;
     @container es-rc-content (min-width: 576px) {
       &__right {
         background-color: $color-accent;
-        background-size: cover;
+        background-size: 100% 100%;
         background-position: center;
         padding: $px-XXL;
         &__textCtn {
@@ -223,13 +224,9 @@ $transition: all 0.3s ease-in-out;
   }
 
   .es-features {
-    background-color: $color-accent-2;
+    background-color: $color-accent;
     color: $color-bg;
     padding: $px-L;
-    ::selection {
-      background-color: $color-accent;
-      color: $color-bg;
-    }
     &__wrapper {
       display: flex;
       flex-direction: column;
@@ -239,7 +236,6 @@ $transition: all 0.3s ease-in-out;
       margin-top: 0;
     }
     &__subtitle {
-      color: $color-main;
       font-size: calc(1.12 * $fs-base);
       margin-top: $px-L;
     }
@@ -270,7 +266,6 @@ $transition: all 0.3s ease-in-out;
         max-width: 100px;
       }
       &__text {
-        color: $color-main;
         text-transform: uppercase;
         font-size: $fs-base;
         &--bold {
@@ -285,27 +280,6 @@ $transition: all 0.3s ease-in-out;
     &__hand {
       &__container {
         margin-right: -$px-L;
-      }
-    }
-    &__shape {
-      background-color: $color-main;
-      clip-path: polygon(0 0, 100% 0%, 100% 100%, 8% 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 8px 8px 24px;
-      gap: $px-M;
-      max-width: 250px;
-      margin-left: auto;
-      margin-block: $px-L;
-      &__text {
-        text-transform: uppercase;
-        font-weight: $fw-semibold;
-        font-size: calc(0.7 * $fs-base);
-        &--number {
-          font-weight: $fw-semibold;
-          font-size: calc(1.8 * $fs-base);
-        }
       }
     }
     &__bg {
@@ -367,9 +341,10 @@ $transition: all 0.3s ease-in-out;
       }
     }
     @container es-rc-content (min-width: 768px) {
-      padding: $px-XL;
+      padding: $px-XXL $px-XL;
       &__bg {
         width: 100%;
+        overflow: hidden;
         &__image {
           min-height: max-content;
         }
@@ -462,7 +437,7 @@ $transition: all 0.3s ease-in-out;
       &__title {
         font-weight: $fw-bold;
         text-transform: uppercase;
-        color: $color-accent-2;
+        color: $color-accent;
         font-size: 20px;
       }
       &__text {
@@ -498,7 +473,7 @@ $transition: all 0.3s ease-in-out;
           right: 0;
           width: 100%;
           height: 100%;
-          background-color: $color-accent-2;
+          background-color: $color-accent;
           clip-path: polygon(88% 0%, 100% 0%, 100% 100%, 5% 100%);
           z-index: -1;
         }
@@ -564,23 +539,26 @@ $transition: all 0.3s ease-in-out;
           width: 55%;
         }
       }
+      &__list {
+        width: 90%;
+        max-width: 350px;
+      }
     }
   }
 
   .es-formula-use {
-    ::selection {
+    &__image {
       background-color: $color-accent;
-      color: $color-bg;
     }
     &__content {
-      background-color: $color-accent-2;
+      background-color: $color-accent;
+      color: $color-bg;
       padding: $px-L;
       display: flex;
       flex-direction: column;
       gap: $px-XL;
     }
     &__name {
-      color: $color-bg;
       text-transform: uppercase;
       font-weight: $fw-bold;
       font-size: 24px;
@@ -589,7 +567,7 @@ $transition: all 0.3s ease-in-out;
     @container es-rc-content (min-width: 576px) {
       display: flex;
       align-items: center;
-      background-color: $color-accent-2;
+      background-color: $color-accent;
       position: relative;
       &__image {
         width: 54%;
@@ -599,7 +577,7 @@ $transition: all 0.3s ease-in-out;
       &__content {
         margin-left: -30px;
         background-color: transparent;
-        width: 49%;
+        width: 46%;
         position: absolute;
         right: 0;
         top: 50%;
@@ -636,7 +614,7 @@ $transition: all 0.3s ease-in-out;
     }
     &__title {
       &--highlight {
-        color: $color-accent-2;
+        color: $color-accent;
       }
     }
     &__subtitle {
@@ -662,7 +640,7 @@ $transition: all 0.3s ease-in-out;
         right: 0;
         width: 100%;
         height: 100%;
-        background-color: #46d7ac;
+        background-color: $color-accent;
         clip-path: polygon(88% 0%, 100% 0%, 100% 100%, 5% 100%);
         z-index: -1;
       }
@@ -795,25 +773,24 @@ $transition: all 0.3s ease-in-out;
       }
       &__item {
         flex: 1 1 0;
+        max-width: unset;
         &__image {
           max-height: 92%;
+          max-width: 200px;
           width: auto;
           padding: 0;
-          max-width: 110px;
           &-container {
             width: 100%;
             height: 100%;
             display: grid;
             align-items: flex-end;
-            aspect-ratio: 1 / 1;
-          }
-          &--3 {
-            max-height: 77%;
+            aspect-ratio: 5 / 4;
           }
         }
         &__text {
           &-description {
-            height: 110px;
+            height: 140px;
+            padding-inline: 8px;
           }
         }
       }
@@ -821,11 +798,6 @@ $transition: all 0.3s ease-in-out;
     @container es-rc-content (min-width: 880px) {
       &__content {
         gap: 8px;
-      }
-      &__item {
-        &__image {
-          max-width: 140px;
-        }
       }
     }
   }
